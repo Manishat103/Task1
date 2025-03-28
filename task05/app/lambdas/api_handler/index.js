@@ -6,7 +6,8 @@ const TABLE_NAME = "Events";
 
 exports.handler = async (event) => {
     try {
-        const { principalId, content } = JSON.parse(event.body);
+        const parsedBody = typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
+        const { principalId, content } = parsedBody;
         
         if (!principalId || typeof content !== 'object') {
             return {
@@ -29,12 +30,14 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 201,
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ event: newEvent })
         };
     } catch (error) {
         console.error("Error saving event:", error);
         return {
             statusCode: 500,
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: "Internal Server Error" })
         };
     }
