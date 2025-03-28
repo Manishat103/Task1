@@ -18,7 +18,12 @@
             "sqs:ReceiveMessage",
             "sqs:DeleteMessage",
             "sqs:GetQueueAttributes",
-            "sqs:GetQueueUrl"
+            "sqs:GetQueueUrl",
+            "dynamodb:GetItem",
+            "dynamodb:Query",
+            "dynamodb:PutItem",
+            "dynamodb:Batch*",
+            "dynamodb:DeleteItem"
           ],
           "Effect": "Allow",
           "Resource": "*"
