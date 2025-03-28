@@ -18,8 +18,7 @@
             "sqs:ReceiveMessage",
             "sqs:DeleteMessage",
             "sqs:GetQueueAttributes",
-            "sqs:GetQueueUrl",
-            "SNS:ListTopics"
+            "sqs:GetQueueUrl"
           ],
           "Effect": "Allow",
           "Resource": "*"
@@ -46,13 +45,7 @@
   "lambda_topic": {
     "resource_type": "sns_topic",
     "region": "eu-west-1",
-    "event_sources": [
-      {
-        "resource_type": "sns_topic_trigger",
-        "target_topic": "lambda_topic",
-        "region": "${region}"
-      }
-    ],
+    "event_sources": [],
     "tags": {}
   }
 }
