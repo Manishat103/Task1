@@ -31,9 +31,7 @@
   },
   "publish_version": true,
   "alias": "${lambdas_alias_name}",
-  "url_config": { 
-      "auth_type": "NONE"
-   },
+  "url_config": {},
   "ephemeral_storage": 512,
   "tags": {}
 }
